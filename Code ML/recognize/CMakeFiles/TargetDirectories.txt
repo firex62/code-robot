@@ -1,0 +1,3 @@
+/home/kukulai/Documents/Code ML/recognize/CMakeFiles/rebuild_cache.dir
+/home/kukulai/Documents/Code ML/recognize/CMakeFiles/recognize.dir
+/home/kukulai/Documents/Code ML/recognize/CMakeFiles/edit_cache.dir
