@@ -1,4 +1,4 @@
-#import cv2
+import cv2
 import jetson.inference
 import jetson.utils
 
@@ -17,8 +17,8 @@ while display.IsOpen():
 
     for det in detections:
         print(det)
-        print(det.ClassID)
-        print(det.Center)
+        # print(det.ClassID)
+        # print(det.Center)
 
     # cv2.imshow('hello', img)
 
