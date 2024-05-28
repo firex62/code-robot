@@ -10,7 +10,6 @@ import jetson.utils
 from jetson_utils import (cudaAllocMapped, cudaConvertColor, 
                           cudaDeviceSynchronize, cudaToNumpy)
 
-
 idSampah = 0
 
 def requestt():
@@ -45,7 +44,6 @@ def baca():
             break
 
 
-
 def kamera():
     global idSampah
     while True:
@@ -68,19 +66,7 @@ def kamera():
         deteksi = net.Detect(img, lebar, tinggi)
         # display.RenderOnce(img, lebar, tinggi)
         # display.SetTitle("Deteksi Objek {:.0f} FPS".format(net.GetNetworkFPS()))
-        
-        
-        # for index, det in enumerate(deteksi):
-        #     print(index)
-            # print(type(det.Top))
-            # label = net.GetClassLabel(det.ClassID)
-            # label2 = label + " " + str(det.ClassID)
-            # print(label)
-            # cv2.rectangle(array, (int(det.Left), int(det.Top)), (int(det.Right), int(det.Bottom)), (255,0,0),)
-            # cv2.putText(array, label2, (int(det.Left), int(det.Top)), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2) 
-        #     cv2.rectangle(array, )
-            # print(det)
-        # baca()
+
         if deteksi:
             objek1 = deteksi[0]
             # print(type(det.Top))
@@ -91,7 +77,8 @@ def kamera():
 
 
         cv2.imshow('test', array)
-        # print(deteksi.confidence)
+        
+        
 bacaThread = threading.Thread(target=baca)
 bacaThread.start()
 kameraThread = threading.Thread(target=kamera)
