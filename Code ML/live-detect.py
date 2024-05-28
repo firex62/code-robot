@@ -54,6 +54,7 @@ while True:
 
 
     cv2.imshow('test', array_cropped)
+    cv2.imshow('uncropped', array)
     # print(deteksi.confidence)
      
 cv2.destroyAllWindows()
