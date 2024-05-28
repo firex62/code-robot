@@ -61,9 +61,12 @@ def kamera():
         cudaDeviceSynchronize()
         
         array = cudaToNumpy(bgr_img)
+        array_cropped = array[110:348, 169:434]  #crop gambar yang sudah jadi numpy
         
+        croppp = jetson.utils.cudaFromNumpy(array_cropped) #konversi kembali gambar yang sudah di crop menjadi cuda
+
         cudaDeviceSynchronize()
-        deteksi = net.Detect(img, lebar, tinggi)
+        deteksi = net.Detect(croppp, lebar, tinggi)
         # display.RenderOnce(img, lebar, tinggi)
         # display.SetTitle("Deteksi Objek {:.0f} FPS".format(net.GetNetworkFPS()))
 
@@ -76,7 +79,8 @@ def kamera():
             cv2.putText(array, label, (int(objek1.Left), int(objek1.Top)), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
 
 
-        cv2.imshow('test', array)
+        cv2.imshow('cropped', array_cropped)
+        cv2.imshow('uncropped', array)
         
         
 bacaThread = threading.Thread(target=baca)
