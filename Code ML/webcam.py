@@ -16,6 +16,7 @@ while True:
     
     
     ret, frame = vid.read()
+    frame_crop = frame[80:360, 120:470]
 
     #frame2 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
 
@@ -32,6 +33,7 @@ while True:
     print(frame.dtype)
 
     cv2.imshow('adsfasf', frame)
+    cv2.imshow('adsfasff', frame_crop)
 
 vid.release()
 cv2.destroyAllWindows()
